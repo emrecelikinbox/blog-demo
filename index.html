@@ -1,0 +1,1249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Turn Content Into Income | Micro Creator Monetization</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --cream: #F5F1E8;
+            --cream-dark: #E8E2D5;
+            --charcoal: #2C2C2C;
+            --warm-gray: #6B6B6B;
+            --accent: #D4A574;
+            --accent-dark: #B88A5E;
+            --white: #FFFFFF;
+            --light-border: #D9D4C7;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background-color: var(--cream);
+            color: var(--charcoal);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(245, 241, 232, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1.2rem 0;
+            border-bottom: 1px solid var(--light-border);
+            animation: slideDown 0.6s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--charcoal);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--charcoal);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .mobile-menu-btn span {
+            width: 25px;
+            height: 2px;
+            background: var(--charcoal);
+            transition: all 0.3s ease;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 8rem 3rem 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: -10%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(212, 165, 116, 0.08) 0%, rgba(212, 165, 116, 0.02) 100%);
+            border-radius: 50%;
+            filter: blur(80px);
+            animation: float 8s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-30px) rotate(5deg); }
+        }
+
+        .hero-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content {
+            animation: fadeInUp 0.8s ease 0.2s both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-label {
+            display: inline-block;
+            background: var(--white);
+            border: 1px solid var(--light-border);
+            padding: 0.6rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            animation: fadeInUp 0.8s ease 0.3s both;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3rem, 6vw, 5.5rem);
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            color: var(--charcoal);
+            letter-spacing: -2px;
+            animation: fadeInUp 0.8s ease 0.4s both;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--warm-gray);
+            line-height: 1.7;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            animation: fadeInUp 0.8s ease 0.5s both;
+        }
+
+        .cta-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            align-items: center;
+            animation: fadeInUp 0.8s ease 0.6s both;
+        }
+
+        .btn-primary {
+            background: var(--charcoal);
+            color: var(--white);
+            padding: 1.1rem 2.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            display: inline-block;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 2px solid var(--charcoal);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--accent);
+            transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: -1;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(44, 44, 44, 0.2);
+            border-color: var(--accent);
+        }
+
+        .btn-primary:hover::before {
+            left: 0;
+        }
+
+        .btn-secondary {
+            color: var(--charcoal);
+            padding: 1.1rem 2.5rem;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            color: var(--accent);
+            gap: 0.8rem;
+        }
+
+        .trust-badge {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--warm-gray);
+            font-size: 0.9rem;
+            margin-top: 1rem;
+        }
+
+        .hero-visual {
+            position: relative;
+            animation: fadeInUp 0.8s ease 0.7s both;
+        }
+
+        .stats-card {
+            background: var(--white);
+            border: 1px solid var(--light-border);
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 40px rgba(44, 44, 44, 0.06);
+        }
+
+        .stat-item {
+            margin-bottom: 2rem;
+        }
+
+        .stat-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--warm-gray);
+            font-size: 0.95rem;
+        }
+
+        /* Section Styling */
+        section {
+            padding: 6rem 3rem;
+            position: relative;
+        }
+
+        .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+            animation: fadeInUp 0.8s ease both;
+        }
+
+        .section-label {
+            display: inline-block;
+            background: var(--white);
+            border: 1px solid var(--light-border);
+            padding: 0.5rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 900;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            color: var(--charcoal);
+            letter-spacing: -1px;
+        }
+
+        .section-subtitle {
+            font-size: 1.15rem;
+            color: var(--warm-gray);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        /* Problem Section */
+        .problem-section {
+            background: linear-gradient(135deg, rgba(212, 165, 116, 0.05) 0%, rgba(245, 241, 232, 1) 100%);
+        }
+
+        .problem-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-top: 3rem;
+        }
+
+        .problem-content h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--charcoal);
+        }
+
+        .problem-list {
+            list-style: none;
+            margin: 2rem 0;
+        }
+
+        .problem-list li {
+            padding: 1rem 0 1rem 2rem;
+            position: relative;
+            font-size: 1.1rem;
+            color: var(--warm-gray);
+            border-bottom: 1px solid var(--light-border);
+        }
+
+        .problem-list li:last-child {
+            border-bottom: none;
+        }
+
+        .problem-list li::before {
+            content: '✗';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .solution-box {
+            background: var(--charcoal);
+            color: var(--white);
+            padding: 3rem;
+            border-radius: 20px;
+            text-align: center;
+        }
+
+        .solution-box h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .service-card {
+            background: var(--white);
+            border: 1px solid var(--light-border);
+            border-radius: 16px;
+            padding: 2.5rem;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--accent);
+            transform: scaleX(0);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(44, 44, 44, 0.1);
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--charcoal);
+        }
+
+        .service-card p {
+            color: var(--warm-gray);
+            line-height: 1.7;
+        }
+
+        /* Target Audience Section */
+        .audience-section {
+            background: var(--white);
+        }
+
+        .audience-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .audience-item {
+            background: var(--cream);
+            border: 2px solid var(--light-border);
+            border-radius: 16px;
+            padding: 2.5rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .audience-item:hover {
+            border-color: var(--accent);
+            transform: translateX(8px);
+        }
+
+        .audience-check {
+            font-size: 2rem;
+            color: var(--accent);
+            flex-shrink: 0;
+        }
+
+        .audience-text {
+            font-size: 1.1rem;
+            color: var(--charcoal);
+            line-height: 1.6;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--charcoal) 0%, #1a1a1a 100%);
+            color: var(--white);
+            text-align: center;
+            padding: 6rem 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 60%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(212, 165, 116, 0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            letter-spacing: -1px;
+        }
+
+        .cta-content p {
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.7;
+        }
+
+        .btn-cta {
+            background: var(--accent);
+            color: var(--white);
+            padding: 1.3rem 3rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            display: inline-block;
+            transition: all 0.3s ease;
+            border: 2px solid var(--accent);
+        }
+
+        .btn-cta:hover {
+            background: var(--accent-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(212, 165, 116, 0.3);
+        }
+
+        .trust-text {
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Work With Me Section */
+        .work-section {
+            background: var(--cream-dark);
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .step {
+            text-align: center;
+            position: relative;
+        }
+
+        .step-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            font-weight: 900;
+            color: var(--accent);
+            opacity: 0.2;
+            margin-bottom: 1rem;
+        }
+
+        .step h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--charcoal);
+        }
+
+        .step p {
+            color: var(--warm-gray);
+            line-height: 1.7;
+        }
+
+        .benefits-list {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 3rem;
+            margin-top: 4rem;
+        }
+
+        .benefits-list h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: var(--charcoal);
+            text-align: center;
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1.5rem 0;
+            border-bottom: 1px solid var(--light-border);
+        }
+
+        .benefit-item:last-child {
+            border-bottom: none;
+        }
+
+        .benefit-icon {
+            color: var(--accent);
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .benefit-text {
+            font-size: 1.1rem;
+            color: var(--charcoal);
+        }
+
+        /* About Section */
+        .about-section {
+            background: var(--white);
+        }
+
+        .about-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .about-content p {
+            font-size: 1.2rem;
+            line-height: 1.9;
+            color: var(--warm-gray);
+            margin-bottom: 1.5rem;
+        }
+
+        .about-highlight {
+            background: var(--cream);
+            border-left: 4px solid var(--accent);
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 3rem 0;
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--charcoal);
+            text-align: left;
+        }
+
+        /* Free Call Page Section */
+        .call-section {
+            background: linear-gradient(135deg, rgba(212, 165, 116, 0.08) 0%, var(--cream) 100%);
+        }
+
+        .call-benefits {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 4rem 0;
+        }
+
+        .call-benefit {
+            background: var(--white);
+            border: 2px solid var(--light-border);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .call-benefit:hover {
+            border-color: var(--accent);
+            transform: translateY(-5px);
+        }
+
+        .call-benefit-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .call-benefit h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--charcoal);
+        }
+
+        .call-benefit p {
+            color: var(--warm-gray);
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--charcoal);
+            color: rgba(255, 255, 255, 0.7);
+            padding: 3rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-text {
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .hero-visual {
+                max-width: 500px;
+                margin: 0 auto;
+            }
+
+            .problem-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .audience-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background: var(--cream);
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1.5rem;
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+                border-bottom: 1px solid var(--light-border);
+            }
+
+            .nav-links.active {
+                transform: translateX(0);
+            }
+
+            .mobile-menu-btn {
+                display: flex;
+            }
+
+            .mobile-menu-btn.active span:nth-child(1) {
+                transform: rotate(45deg) translateY(8px);
+            }
+
+            .mobile-menu-btn.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .mobile-menu-btn.active span:nth-child(3) {
+                transform: rotate(-45deg) translateY(-8px);
+            }
+        }
+
+        @media (max-width: 768px) {
+            section {
+                padding: 4rem 1.5rem;
+            }
+
+            .nav-container {
+                padding: 0 1.5rem;
+            }
+
+            .hero {
+                padding: 6rem 1.5rem 3rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .process-steps {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .cta-group {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .btn-primary,
+            .btn-secondary {
+                text-align: center;
+                justify-content: center;
+            }
+        }
+
+        /* Scroll Reveal Animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="#home" class="logo">Creator Coach</a>
+            <button class="mobile-menu-btn" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#work">Work With Me</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#call">Free Call</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <span class="hero-label">For Micro Creators</span>
+                <h1>I Help Micro Creators Turn Content Into Income</h1>
+                <p class="hero-subtitle">
+                    If you have an audience but no clear offer, I help you create, position, and launch your first digital product — without overwhelm.
+                </p>
+                <div class="cta-group">
+                    <a href="#call" class="btn-primary">Book Your Free Strategy Call</a>
+                    <a href="#work" class="btn-secondary">Learn More →</a>
+                </div>
+                <div class="trust-badge">
+                    ✓ Free 30-minute clarity session
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="stats-card">
+                    <div class="stat-item">
+                        <div class="stat-number">10-100K</div>
+                        <div class="stat-label">Ideal follower range</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">30 min</div>
+                        <div class="stat-label">Free strategy call</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">$0</div>
+                        <div class="stat-label">To get started</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="problem-section">
+        <div class="section-container">
+            <div class="section-header reveal">
+                <span class="section-label">The Reality</span>
+                <h2 class="section-title">Posting… but not profiting?</h2>
+            </div>
+            <div class="problem-grid">
+                <div class="problem-content reveal">
+                    <h3>You're creating content consistently.</h3>
+                    <p style="color: var(--warm-gray); margin-bottom: 2rem;">You have ideas. You know you could monetize. But you don't know:</p>
+                    <ul class="problem-list">
+                        <li>What to sell</li>
+                        <li>How to package it</li>
+                        <li>Or how to launch it</li>
+                    </ul>
+                </div>
+                <div class="solution-box reveal">
+                    <h4>That's where I come in.</h4>
+                    <p>I help you cut through the confusion and build a clear path to your first profitable digital product.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section>
+        <div class="section-container">
+            <div class="section-header reveal">
+                <span class="section-label">What I Do</span>
+                <h2 class="section-title">What I Help You With</h2>
+                <p class="section-subtitle">When we work together, we focus on what actually matters for your monetization journey</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card reveal">
+                    <div class="service-icon">💡</div>
+                    <h3>Product Ideation</h3>
+                    <p>Finding your most profitable digital product idea based on your unique strengths and audience needs.</p>
+                </div>
+                <div class="service-card reveal">
+                    <div class="service-icon">🎯</div>
+                    <h3>Niche & Positioning</h3>
+                    <p>Clarifying your niche and positioning so you stand out and attract your ideal customers.</p>
+                </div>
+                <div class="service-card reveal">
+                    <div class="service-icon">📦</div>
+                    <h3>Offer Creation</h3>
+                    <p>Turning your knowledge into a sellable offer that solves real problems and delivers value.</p>
+                </div>
+                <div class="service-card reveal">
+                    <div class="service-icon">🚀</div>
+                    <h3>Launch Planning</h3>
+                    <p>Creating a simple launch plan that doesn't require you to be a marketing expert.</p>
+                </div>
+                <div class="service-card reveal">
+                    <div class="service-icon">🗺️</div>
+                    <h3>Monetization Roadmap</h3>
+                    <p>Building a monetization roadmap that makes sense for YOU and your unique situation.</p>
+                </div>
+                <div class="service-card reveal">
+                    <div class="service-icon">✨</div>
+                    <h3>Ongoing Support</h3>
+                    <p>Providing clarity and feedback throughout your journey to keep you on track.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Target Audience Section -->
+    <section class="audience-section">
+        <div class="section-container">
+            <div class="section-header reveal">
+                <span class="section-label">Is This You?</span>
+                <h2 class="section-title">Who I Work With</h2>
+                <p class="section-subtitle">I work with micro creators who are ready to take action</p>
+            </div>
+            <div class="audience-grid">
+                <div class="audience-item reveal">
+                    <div class="audience-check">✓</div>
+                    <div class="audience-text">Have 10-100K followers on your platform</div>
+                </div>
+                <div class="audience-item reveal">
+                    <div class="audience-check">✓</div>
+                    <div class="audience-text">Want to launch their first digital product</div>
+                </div>
+                <div class="audience-item reveal">
+                    <div class="audience-check">✓</div>
+                    <div class="audience-text">Are tired of "just posting" without returns</div>
+                </div>
+                <div class="audience-item reveal">
+                    <div class="audience-check">✓</div>
+                    <div class="audience-text">Are ready to build real income streams</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2>Let's Build Your Monetization Plan</h2>
+            <p>
+                Book a free 30-minute strategy call. We'll review your content, talk through your ideas, and outline your next steps.
+            </p>
+            <a href="#call" class="btn-cta">Book Free Call Now</a>
+            <p class="trust-text">No pressure. No sales tricks. Just clarity.</p>
+        </div>
+    </section>
+
+    <!-- Work With Me Section -->
+    <section id="work" class="work-section">
+        <div class="section-container">
+            <div class="section-header reveal">
+                <span class="section-label">Process</span>
+                <h2 class="section-title">How It Works</h2>
+                <p class="section-subtitle">A simple, structured approach to launching your first digital product</p>
+            </div>
+            <div class="process-steps">
+                <div class="step reveal">
+                    <div class="step-number">01</div>
+                    <h3>Free Strategy Call</h3>
+                    <p>We start with a no-pressure call to understand your situation and goals.</p>
+                </div>
+                <div class="step reveal">
+                    <div class="step-number">02</div>
+                    <h3>Define & Position</h3>
+                    <p>We define your product and positioning to ensure it resonates with your audience.</p>
+                </div>
+                <div class="step reveal">
+                    <div class="step-number">03</div>
+                    <h3>Build Launch Plan</h3>
+                    <p>We create a clear, actionable launch plan tailored to your needs.</p>
+                </div>
+                <div class="step reveal">
+                    <div class="step-number">04</div>
+                    <h3>Execute with Clarity</h3>
+                    <p>You execute with structure, clarity, and ongoing support from me.</p>
+                </div>
+            </div>
+
+            <div class="benefits-list reveal">
+                <h3>What You Get</h3>
+                <div class="benefit-item">
+                    <div class="benefit-icon">🎯</div>
+                    <div class="benefit-text">Personalized monetization strategy</div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">💡</div>
+                    <div class="benefit-text">Clear digital product concept</div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">📍</div>
+                    <div class="benefit-text">Offer positioning guidance</div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">🗺️</div>
+                    <div class="benefit-text">Launch roadmap</div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">💬</div>
+                    <div class="benefit-text">Ongoing clarity & feedback</div>
+                </div>
+            </div>
+
+            <div class="about-highlight reveal" style="margin-top: 4rem;">
+                <strong>Why This Is Different:</strong><br>
+                This isn't generic business advice. This is strategy built around your specific audience, niche, and goals.
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="section-container">
+            <div class="section-header reveal">
+                <span class="section-label">About</span>
+                <h2 class="section-title">Why I Do This</h2>
+            </div>
+            <div class="about-content reveal">
+                <p>
+                    I started noticing how many small creators were showing up consistently but not getting paid.
+                </p>
+                <p>
+                    The problem wasn't effort — it was clarity.
+                </p>
+                <div class="about-highlight">
+                    I focus on helping micro creators simplify monetization, build structured offers, and stop overcomplicating the process.
+                </div>
+                <p>
+                    My goal is simple: help you move from content creator to digital product owner.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Free Call Page Section -->
+    <section id="call" class="call-section">
+        <div class="section-container">
+            <div class="section-header reveal">
+                <span class="section-label">Take Action</span>
+                <h2 class="section-title">Your First Step Toward Monetization</h2>
+                <p class="section-subtitle">
+                    This free 30-minute call is for creators who are serious about launching their digital product.
+                </p>
+            </div>
+
+            <div class="call-benefits">
+                <div class="call-benefit reveal">
+                    <div class="call-benefit-icon">🔍</div>
+                    <h3>Identify Gaps</h3>
+                    <p>We'll identify monetization gaps in your current strategy</p>
+                </div>
+                <div class="call-benefit reveal">
+                    <div class="call-benefit-icon">💡</div>
+                    <h3>Explore Ideas</h3>
+                    <p>We'll explore product ideas that align with your strengths</p>
+                </div>
+                <div class="call-benefit reveal">
+                    <div class="call-benefit-icon">🎯</div>
+                    <h3>Clarify Next Steps</h3>
+                    <p>We'll clarify your next action steps to get started</p>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="https://calendly.com/yourlink" class="btn-primary" style="font-size: 1.2rem; padding: 1.3rem 3rem;">Schedule My Free Call</a>
+                <p class="trust-badge" style="justify-content: center; margin-top: 1.5rem; font-size: 1rem;">
+                    ✓ No pressure. No sales tricks. Just clarity.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p class="footer-text">© 2026 Creator Coach. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#home">Home</a>
+                <a href="#work">Work With Me</a>
+                <a href="#about">About</a>
+                <a href="#call">Free Call</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenuBtn.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenuBtn.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Scroll Reveal Animation
+        const reveals = document.querySelectorAll('.reveal');
+
+        const revealOnScroll = () => {
+            reveals.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementBottom = element.getBoundingClientRect().bottom;
+                const windowHeight = window.innerHeight;
+
+                if (elementTop < windowHeight - 100 && elementBottom > 0) {
+                    element.classList.add('active');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', revealOnScroll);
+        window.addEventListener('load', revealOnScroll);
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
